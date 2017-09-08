@@ -1,6 +1,6 @@
 # reor
 Used technologies:
-Xamarin.Forms
+Xamarin.Forms,
 Microsoft Azure Mobile Apps
 
 Pckgs:
