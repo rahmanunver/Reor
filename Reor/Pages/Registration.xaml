@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Reor.Registration">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="regUsername" Placeholder="Username"></Entry>
+            <Entry x:Name="regPassword" Placeholder="Password" IsPassword="True"></Entry>
+            <Entry x:Name="regPassConfirm" Placeholder="Confirm Password" IsPassword="True"></Entry>
+            <Entry x:Name="regEmail" Placeholder="E-mail"></Entry>
+          
+            <Button Text="Register" HorizontalOptions="CenterAndExpand" VerticalOptions="End" Clicked="RegisterClicked" ></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

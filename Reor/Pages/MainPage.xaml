@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Reor"
+             xmlns:segmented="clr-namespace:SegmentedControl.FormsPlugin.Abstractions;assembly=SegmentedControl.FormsPlugin.Abstractions"
+             xmlns:oxy="clr-namespace:OxyPlot.Xamarin.Forms;assembly=OxyPlot.Xamarin.Forms"  
+             x:Class="Reor.MainPage"
+             Title="Money">
+    
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <segmented:SegmentedControl x:Name="SegControl"  Grid.Row="0" TintColor="#007AFF" SelectedSegment="0">
+                <segmented:SegmentedControl.Children>
+                    <segmented:SegmentedControlOption Text="Daily" />
+                    <segmented:SegmentedControlOption Text="Weekly" />
+                    <segmented:SegmentedControlOption Text="Monthly" />
+                </segmented:SegmentedControl.Children>
+            </segmented:SegmentedControl>
+            <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <oxy:PlotView x:Name="myChart" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  />
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Grid.Row="0">
+                    <Entry x:Name="txtItemName" Placeholder="Item/Expense" />
+                    <Entry x:Name="txtTime"  Placeholder="Price"></Entry>
+                    <Label Text="TL" FontSize="Medium" ></Label>
+                </StackLayout>
+                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal" Grid.Row="1">
+                    <Button Text="Clear" Clicked="ClearButton_Clicked"/>
+                    <Button Text="Add" Clicked="AddButton_Clicked"/>
+
+                </StackLayout>
+            </Grid>
+            <ListView x:Name="listItems" Grid.Row="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Label Text="{Binding Name}" HorizontalOptions="Start" VerticalOptions="CenterAndExpand"/>
+                                <Label Text="{Binding Expense}" HorizontalOptions="End" VerticalOptions="CenterAndExpand"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
